@@ -1,5 +1,5 @@
 # GRBL-Post
-A post processor for CAMWorks / SolidWorks CAM for GRBL
+A post processor for CAMWorks / SolidWorks CAM for GRBL (https://github.com/grbl/grbl)
 
 This is developed using Universal Post Generator (UPG-2) utility available from 
 https://camworks.com/universal-post-generator/
