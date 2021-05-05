@@ -17,3 +17,10 @@ To compile, open in UPG-2 and hit compile. The .ctl file will be deposited in th
 To test, I connect to my GRBL controller using UGS (https://winder.github.io/ugs_website/). While I don't use this method for normal operation, it's good to run test files to see GRBL's response. 
 
 This is work in progress and is unlikely to work as is. 
+
+This project has drawn inspiration from:
+http://www.restrictedayerspace.net/cnc/grbl-postprocessor-for-solidworks/
+https://github.com/gnea/grbl/issues/237
+https://hawkridgesys.com/products/cam/post-processors/carbide-3d-shapeoko
+
+However, none of these posts did what I needed or outputted gcode that my grbl controller could work with.
