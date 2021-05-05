@@ -16,7 +16,10 @@ To compile, open in UPG-2 and hit compile. The .ctl file will be deposited in th
 
 To test, I connect to my GRBL controller using UGS (https://winder.github.io/ugs_website/). While I don't use this method for normal operation, it's good to run test files to see GRBL's response. 
 
-This is work in progress and is unlikely to work as is. 
+This is work in progress and might not work as you intend. Please test before walking away from your machine. 
+
+Useful Post information:
+https://wiki.shapeoko.com/index.php/G-Code#Post_Processors
 
 This project has drawn inspiration from:
 http://www.restrictedayerspace.net/cnc/grbl-postprocessor-for-solidworks/
