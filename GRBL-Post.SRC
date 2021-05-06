@@ -10,7 +10,7 @@
 :G_LEFT_PLACES=3
 :G_RIGHT_PLACES=5
 :G_INT_LEFT_PLACES=2
-:INT_LEADING=TRUE
+:INT_LEADING=FALSE
 :INT_TRAILING=TRUE
 :5AXIS_MILLING=FALSE
 :4AXIS_X_MILLING=FALSE
@@ -47,7 +47,7 @@
 :ATTRSEL=N
 :ATTRINLEN=60
 :ATTRSHORT=Machine Name
-:ATTRDEFAULT=UPG UGS Test
+:ATTRDEFAULT=RSCNC32
 :CODETYPE=FORMAT
 :WORD_ADDRESS_BEF=|(|MACHINE=
 :WORD_ADDRESS_AFT=|)
@@ -63,7 +63,7 @@
 :ATTRSEL=N
 :ATTRINLEN=60
 :ATTRSHORT=Controller Type
-:ATTRDEFAULT=FANUC COMPATIBLE
+:ATTRDEFAULT=GRBL
 :CODETYPE=FORMAT
 :WORD_ADDRESS_BEF=|(|CONTROLLER=
 :WORD_ADDRESS_AFT=|)
@@ -124,14 +124,32 @@
 :ATTREND
 *-----------------------------------
 :LIBRARY=.\GRBL-Post.LIB
-:LIBRARY=..\..\..\CAMWorksData\UPG-2\MasterLibraryFiles\MILL.LIB
+:LIBRARY=..\..\..\..\CAMWorksData\UPG-2\MasterLibraryFiles\MILL.LIB
 *-----------------------------------
 :ATTRNAME=setup
 :ATTRTYPE=LIST
 :ATTRSEL=N
 :ATTRTITLE=Setup
+:ATTRLIST=program number
+:ATTRLISTDEF=1
+:ATTRLIST=program id
+:ATTRLISTDEF=1
+:ATTRLIST=material
+:ATTRLISTDEF=STEEL
 :ATTRLIST=thickness
 :ATTRLISTDEF=.125
+:ATTRLIST=part number
+:ATTRLISTDEF=1
+:ATTRLIST=job name
+:ATTRLISTDEF=1
+:ATTRLIST=company name
+:ATTRLISTDEF=
+:ATTRLIST=programmer
+:ATTRLISTDEF=
+:ATTRLIST=operation description
+:ATTRLISTDEF=1
+:ATTRLIST=date
+:ATTRLISTDEF=
 :ATTRUSED=1
 :ATTRDEFAULT=1
 :ATTREND
@@ -191,11 +209,13 @@
 :OPERID=MILL_LACE
 :OPERLIST=abs inc
 :OPERLIST=work coord
+:OPERLIST=coolant
 :OPEREND
 *-----------------------------------
 :OPERID=MILL_POCKET
 :OPERLIST=abs inc
 :OPERLIST=work coord
+:OPERLIST=coolant
 :OPEREND
 *-----------------------------------
 :OPERID=MILL_PROFILING
@@ -203,16 +223,261 @@
 :OPERLIST=display tool offset
 :OPERLIST=abs inc
 :OPERLIST=work coord
+:OPERLIST=coolant
 :OPEREND
 *-----------------------------------
 :OPERID=MILL_MISC
 :OPERLIST=abs inc
 :OPERLIST=work coord
+:OPERLIST=coolant
 :OPEREND
 *-----------------------------------
 :OPERID=MILL_UV_CUT
 :OPERLIST=abs inc
 :OPERLIST=work coord
+:OPERLIST=coolant
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=tool retract distance
+:OPERLIST=pole angle tolerance
+:OPERLIST=auto pole angle
+:OPERLIST=pole handling
+:OPERLIST=interpolation type
+:OPERLIST=retract and rewind
+:OPERLIST=rewind angle
+:OPERLIST=multiaxis best solution
+:OPERLIST=multiaxis rotary angle
+:OPERLIST=use machine limits
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=tool retract distance
+:OPERLIST=pole angle tolerance
+:OPERLIST=auto pole angle
+:OPERLIST=pole handling
+:OPERLIST=interpolation type
+:OPERLIST=retract and rewind
+:OPERLIST=rewind angle
+:OPERLIST=multiaxis best solution
+:OPERLIST=multiaxis rotary angle
+:OPERLIST=use machine limits
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=tool retract distance
+:OPERLIST=pole angle tolerance
+:OPERLIST=auto pole angle
+:OPERLIST=pole handling
+:OPERLIST=interpolation type
+:OPERLIST=retract and rewind
+:OPERLIST=rewind angle
+:OPERLIST=multiaxis best solution
+:OPERLIST=multiaxis rotary angle
+:OPERLIST=use machine limits
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=tool retract distance
+:OPERLIST=pole angle tolerance
+:OPERLIST=auto pole angle
+:OPERLIST=pole handling
+:OPERLIST=interpolation type
+:OPERLIST=retract and rewind
+:OPERLIST=rewind angle
+:OPERLIST=multiaxis best solution
+:OPERLIST=multiaxis rotary angle
+:OPERLIST=use machine limits
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=tool retract distance
+:OPERLIST=pole angle tolerance
+:OPERLIST=auto pole angle
+:OPERLIST=pole handling
+:OPERLIST=interpolation type
+:OPERLIST=retract and rewind
+:OPERLIST=rewind angle
+:OPERLIST=multiaxis best solution
+:OPERLIST=multiaxis rotary angle
+:OPERLIST=use machine limits
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=tool retract distance
+:OPERLIST=pole angle tolerance
+:OPERLIST=auto pole angle
+:OPERLIST=pole handling
+:OPERLIST=interpolation type
+:OPERLIST=retract and rewind
+:OPERLIST=rewind angle
+:OPERLIST=multiaxis best solution
+:OPERLIST=multiaxis rotary angle
+:OPERLIST=use machine limits
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=tool retract distance
+:OPERLIST=pole angle tolerance
+:OPERLIST=auto pole angle
+:OPERLIST=pole handling
+:OPERLIST=interpolation type
+:OPERLIST=retract and rewind
+:OPERLIST=rewind angle
+:OPERLIST=multiaxis best solution
+:OPERLIST=multiaxis rotary angle
+:OPERLIST=use machine limits
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=tool retract distance
+:OPERLIST=pole angle tolerance
+:OPERLIST=auto pole angle
+:OPERLIST=pole handling
+:OPERLIST=interpolation type
+:OPERLIST=retract and rewind
+:OPERLIST=rewind angle
+:OPERLIST=multiaxis best solution
+:OPERLIST=multiaxis rotary angle
+:OPERLIST=use machine limits
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=tool retract distance
+:OPERLIST=pole angle tolerance
+:OPERLIST=auto pole angle
+:OPERLIST=pole handling
+:OPERLIST=interpolation type
+:OPERLIST=retract and rewind
+:OPERLIST=rewind angle
+:OPERLIST=multiaxis best solution
+:OPERLIST=multiaxis rotary angle
+:OPERLIST=use machine limits
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=tool retract distance
+:OPERLIST=pole angle tolerance
+:OPERLIST=auto pole angle
+:OPERLIST=pole handling
+:OPERLIST=interpolation type
+:OPERLIST=retract and rewind
+:OPERLIST=rewind angle
+:OPERLIST=multiaxis best solution
+:OPERLIST=multiaxis rotary angle
+:OPERLIST=use machine limits
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
+:OPERLIST=tool retract distance
+:OPERLIST=pole angle tolerance
+:OPERLIST=auto pole angle
+:OPERLIST=pole handling
+:OPERLIST=interpolation type
+:OPERLIST=retract and rewind
+:OPERLIST=rewind angle
+:OPERLIST=multiaxis best solution
+:OPERLIST=multiaxis rotary angle
+:OPERLIST=use machine limits
+:OPERLIST=auto angle pair
+:OPERLIST=other angle pair
+:OPERLIST=angle change limit
+:OPERLIST=interpolation angle step
+:OPERLIST=using int distance
+:OPERLIST=interpolation distance
 :OPERLIST=auto angle pair
 :OPERLIST=other angle pair
 :OPERLIST=angle change limit
@@ -240,71 +505,98 @@
 :OPERID=MILL_SLICE_CUT
 :OPERLIST=abs inc
 :OPERLIST=work coord
+:OPERLIST=coolant
 :OPEREND
 *-----------------------------------
 :OPERID=MILL_ROUGH_CUT
 :OPERLIST=abs inc
 :OPERLIST=work coord
+:OPERLIST=coolant
 :OPEREND
 *-----------------------------------
 :OPERID=MILL_CURVE_CUT
 :OPERLIST=abs inc
 :OPERLIST=work coord
+:OPERLIST=coolant
 :OPEREND
 *-----------------------------------
 :OPERID=MILL_TOPO_CUT
 :OPERLIST=abs inc
 :OPERLIST=work coord
+:OPERLIST=coolant
 :OPEREND
 *-----------------------------------
 :OPERID=MILL_FREEFORM_CUT
 :OPERLIST=abs inc
 :OPERLIST=work coord
+:OPERLIST=coolant
 :OPEREND
 *-----------------------------------
 :OPERID=MILL_PENCIL_CUT
 :OPERLIST=abs inc
 :OPERLIST=work coord
+:OPERLIST=coolant
 :OPEREND
 *------------------------------
 :SECTION=START_OF_TAPE
-(Made in : UPC)
-(G Code optimized for OpenBuilds OX CNC 1000 x 750 with GRBL V0.9j controller)
+:T:(Start of Tape)<EOL>
+:T:<BLANK><EOL>
+:T:(Made in : UPC)<EOL>
+:T:(G Code optimized for RS-CNC32 with GRBL V0.9j controller)<EOL>
+:T:<BLANK><EOL>
+:T:<S_PART_NUMBER><EOL>
+:T:<S_PART_NAME><EOL>
+:T:<S_PROGRAMMER><EOL>
+:T:<S_OPERATION_NUMBER><EOL>
+:T:<S_DATE><EOL>
+:T:<BLANK><EOL>
+:T:<N><G:90><G:94><G:17><G!:ENGMET><G!:80><EOL>
 
-:T:O<"%4LT":program_number><EOL>
-:T:<N><G:17><G!:ENGMET><G!:40><G!:80><EOL>
 *
 :SECTION=INIT_TOOL_CHANGE_MILL
+:T:<BLANK><EOL>
+:T:(Init Tool Change)<EOL>
 :T:<N><TOOL_COMMENT><EOL>
-:T:<N><T><M:06><EOL>
+:T:<N><G:53><EOL>
+:T:<N><G:00> Z-2 <EOL>
+
+:T:<N><G!:work_coord><EOL>
 :T:<N><S!><M!:SPINDLE_DIR><EOL>
-:T:<N><W_COORD!><EOL>
 :T:<N><M!:COOLANT_TYPE><EOL>
+:T:<N><G:04> P1 <EOL>
 *
 :SECTION=INIT_PRELOAD_TOOL_CHANGE_MILL
+:T:<BLANK><EOL>
+:T:(Init Tool Change)<EOL>
 :T:<N><TOOL_COMMENT><EOL>
-:T:<N><T><M:06><EOL>
-:T:<N><T:NEXT_TOOL><EOL>
+:T:<N><G:53><G:00> Z-2 <EOL>
+
+:T:<N><G!:work_coord><EOL>
 :T:<N><S!><M!:SPINDLE_DIR><EOL>
-:T:<N><W_COORD!><EOL>
 :T:<N><M!:COOLANT_TYPE><EOL>
+:T:<N><G:04> P1 <EOL>
 *
 :SECTION=SUB_TOOL_CHANGE_MILL
-:T:<N><G:00><G:91><G:28> Z0<EOL>
+:T:<BLANK><EOL>
+:T:(Init Tool Change)<EOL>
 :T:<N><TOOL_COMMENT><EOL>
-:T:<N><T><M:06><EOL>
+:T:<N><G:53><G:00> Z-2 <EOL>
+
+:T:<N><G!:work_coord><EOL>
 :T:<N><S!><M!:SPINDLE_DIR><EOL>
-:T:<N><W_COORD!><EOL>
 :T:<N><M!:COOLANT_TYPE><EOL>
+:T:<N><G:04> P1 <EOL>
 *
 :SECTION=SUB_PRELOAD_TOOL_CHANGE_MILL
-:T:<N><G:00><G:91><G:28> Z0<EOL>
+:T:<BLANK><EOL>
+:T:(Init Tool Change)<EOL>
 :T:<N><TOOL_COMMENT><EOL>
-:T:<N><T><M:06><EOL>
-:T:<N><T:NEXT_TOOL><EOL>
+:T:<N><G:53><G:00> Z-2 <EOL>
+
+:T:<N><G!:work_coord><EOL>
 :T:<N><S!><M!:SPINDLE_DIR><EOL>
-:T:<N><W_COORD!><EOL>
 :T:<N><M!:COOLANT_TYPE><EOL>
+:T:<N><G:04> P1 <EOL>
 *
 *:SECTION=FIRST_RAPID_Z_MOVE_DOWN_MILL
 *
@@ -313,25 +605,30 @@
 *:SECTION=FIVE_AXIS_FIRST_RAPID_Z_DOWN
 *
 :SECTION=RAPID_Z_MOVE_DOWN_MILL
+:T:(Rapid Z Down)<EOL>
 :T:<N><G:90><G:00><Z><EOL>
 *
 *:SECTION=FIVE_AXIS_RAPID_Z_MOVE_DOWN
 *
 :SECTION=RAPID_Z_MOVE_UP_MILL
+:T:(Rapid Z up)<EOL>
 :T:<N><G:90><G:00><Z><EOL>
 *
 *:SECTION=FIVE_AXIS_RAPID_Z_MOVE_UP
 *
 :SECTION=LAST_RAPID_Z_MOVE_UP_MILL
+:T:(Last Rapid Z Up)<EOL>
 :T:<N><G:90><G><Z><M:09><EOL>
 *
 *:SECTION=FIVE_AXIS_LAST_RAPID_Z_MOVE_UP
 *
 :SECTION=RAPID_FROM_TOOL_CHANGE_MILL
+:T:(Rapid From Tool Change)<EOL>
 :T:<N><S><M:SPINDLE_DIR><EOL>
 :T:<N><W_COORD!><G!:00><G!:90><X!><Y!><EOL>
 *
 :SECTION=RAPID_LEADIN_FROM_TOOL_CHANGE_MILL
+:T:(Rapid Leadin From T.Chg)<EOL>
 :T:<N><S><M:SPINDLE_DIR><EOL>
 :T:<N><W_COORD!><G:COMP><COMP_NUMBER><G!:00><G!:90><X!><Y!><EOL>
 *
@@ -344,14 +641,17 @@
 :T:IF USING_5TH_AXIS_LOCK=YES THEN <N><M:MC(M_LOCK_5ON)><EOL>ENDIF
 *
 :SECTION=RAPID_MOVE_MILL
+:T:(Rapid Move)<EOL>
 :T:<N><S><M:SPINDLE_DIR><EOL>
 :T:<N><G:ABSINC><W_COORD><G:00><X!><Y!><EOL>
 *
 :SECTION=RAPID_LEADIN_MOVE_MILL
+:T:(Rapid Leadin Move)<EOL>
 :T:<N><S><M:SPINDLE_DIR><EOL>
 :T:<N><G:ABSINC><W_COORD><G:COMP><COMP_NUMBER><G:00><X!><Y!><EOL>
 *
 :SECTION=RAPID_LEADOUT_MOVE_MILL
+:T:(Rapid Leadout Move)<EOL>
 :T:<N><G:ABSINC><G:40><G:00><X!><Y!><EOL>
 *
 :SECTION=FIVE_AXIS_RAPID_MOVE_MILL
@@ -369,15 +669,18 @@
 *:SECTION=FIVE_AXIS_RAPID_TO_T_CHANGE
 *
 :SECTION=FEED_Z_MOVE_DOWN_MILL
+:T:(Feed Z Down)<EOL>
 :T:<N><G:90><G:94><G:01><Z><F><M:COOLANT_TYPE><EOL>
 *
 *:SECTION=FIVE_AXIS_FEED_Z_MOVE_DOWN
 *
 :SECTION=LINE_LEADIN_MOVE_MILL
-:T:<N><G:ABSINC><G:94><W_COORD><G:COMP><COMP_NUMBER><G:01><X!><Y!><Z><F><EOL>
+:T:(Line Leadin Move)<EOL>
+:T:<N><G:ABSINC><G:94><W_COORD><G:01><X!><Y!><Z><F><EOL>
 *
 :SECTION=LINE_MOVE_MILL
-:T:<N><G:ABSINC><G:94><G:01><X><Y><Z><F><EOL>
+:T:(Line Move)<EOL>
+:T:<N><G:ABSINC><G:94><G:01><X!><Y!><Z!><F><EOL>
 *
 *:SECTION=FASTLINE
 *
@@ -388,12 +691,15 @@
 :T:IF USING_REVERSE_FEEDRATE=NO THEN <N><G:ABSINC><G:GC(G_FPM)><G:01><X><Y><Z><A><B><F><EOL>ENDIF
 *
 :SECTION=LINE_LEADOUT_MOVE_MILL
+:T:(Line Leadout Move)<EOL>
 :T:<N><G:ABSINC><G:94><G:40><G:01><X><Y><Z><F><EOL>
 *
 :SECTION=ARC_MOVE_MILL
+:T:(Arc Move)<EOL>
 :T:<N><G:94><G:ARC_DIR><X><Y><Z><I><J><F><EOL>
 *
 :SECTION=RADIUS_MOVE_MILL
+:T:(Radius Move)<EOL>
 :T:<N><G:ABSINC><G:94><G:ARC_DIR><X><Y><Z><R><F><EOL>
 *
 *:SECTION=DRILL_POSITION
@@ -502,9 +808,11 @@
 :T:<N><G:80><G:90><Z!:OPR_Z_RAPID_PLANE><M:09><EOL>
 *
 :SECTION=PROGRAM_STOP
+:T:(Program Stop)<EOL>
 :T:<N><M:00><EOL>
 *
 :SECTION=ABSOLUTE_PRESET
+:T:(Absolute Present)<EOL>
 :T:<N><G:52><X><Y><Z><EOL>
 *
 :SECTION=BEG_MACRO_MILL
@@ -581,9 +889,12 @@
 :T:<N> C0<EOL>
 *
 :SECTION=END_OF_TAPE
-:T:<N><G:00><G:91><G:28> Z0<EOL>
-:T:<N><G:28> X0 Y0<EOL>
-:T:IF USING_HAAS_G10_L13=YES THEN <N><G:10> L13 P<"%10":TOOL> R0<EOL>ENDIF
+:T:(End of Tape)<EOL>
+:T:<N><G:53><EOL>
+:T:<N><G:00> Z-2 <EOL>
+:T:<N><M:05><EOL>
+:T:<N><G:04> P1 <EOL>
+:T:<N><G:53><G:00> X-538 Y-568 <EOL>
 :T:<N><M:30><EOL>
 *
 *:SECTION=END_OF_TAPE_PRELOAD
@@ -592,16 +903,20 @@
 :T:<N><OPR_COMMENT><EOL>
 *
 :SECTION=CHANGE_MILL_SPEED
+:T:(Chnage Mill Speed)<EOL>
 :T:IF OPR_SPEED=0 THEN <N><M:05><EOL>ENDIF
 :T:IF OPR_SPEED>0 THEN <N><S><M:SPINDLE_DIR><EOL>ENDIF
 *
 :SECTION=OUTPUT_DWELL
+:T:(Output Dwell)<EOL>
 :T:IF CW_DWELL>0 THEN <N><G:04> X<#:CW_DWELL><EOL>ENDIF
 *
 :SECTION=OUTPUT_COOLANT
+:T:(Output Coolant)<EOL>
 :T:<N><M:COOLANT_TYPE><EOL>
 *
 :SECTION=OPTIONAL_STOP
+:T:(Optional Stop)<EOL>
 :T:<N><M:01><EOL>
 *
 :SECTION=5AXIS_RAPID_LEADIN_FROM_TOOL_CHANGE_MILL
@@ -699,6 +1014,14 @@
 :C: USING_5TH_AXIS_LOCK=NO
 :C: WORK_COORDINATE_SUPPORT=NO
 :C: WORK_AND_SUB_SUPPORT=NO
+:C: USING_HAAS_G10_L13=NO
+:C: USING_WORLD_COORDINATES=NO
+:C: SUPPORTING_CL_COOLANT=1
+:C: MAX_ARC_RADIUS=9999
+:C: USING_HAAS_G10_L13=NO
+:C: USING_WORLD_COORDINATES=NO
+:C: SUPPORTING_CL_COOLANT=1
+:C: MAX_ARC_RADIUS=9999
 :C: USING_HAAS_G10_L13=NO
 :C: USING_WORLD_COORDINATES=NO
 :C: SUPPORTING_CL_COOLANT=1
